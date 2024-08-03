@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
-import './AddEmployee.css';
+import '../styles/AddEmployee.css';
 
 const AddEmployee = () => {
   const [name, setName] = useState('');
