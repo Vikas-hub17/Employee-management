@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
+import './AddEmployee.css';
 
 const AddEmployee = () => {
   const [name, setName] = useState('');
@@ -20,12 +22,20 @@ const AddEmployee = () => {
     event.preventDefault();
     const employee = { name, address, contacts };
     axios.post('https://api.cosmocloud.io/employees', employee)
-      .then(() => alert('Employee added successfully'))
-      .catch(error => console.error('Error adding employee:', error));
+      .then(() => {
+        toast.success('Employee added successfully');
+        setName('');
+        setAddress({ line1: '', city: '', country: '', zip_code: '' });
+        setContacts([{ contact_method: '', value: '' }]);
+      })
+      .catch(error => {
+        console.error('Error adding employee:', error);
+        toast.error('Failed to add employee');
+      });
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Add Employee</h1>
       <form onSubmit={handleSubmit}>
         <div>
