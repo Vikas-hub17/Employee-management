@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import '../styles/EmployeeList.css';
 
 const EmployeeList = () => {
   const [employees, setEmployees] = useState([]);
@@ -18,22 +19,24 @@ const EmployeeList = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Employee List</h1>
       {employees.length === 0 ? (
         <p>No Employees in the system</p>
       ) : (
-        <ul>
+        <ul className="employee-list">
           {employees.map(employee => (
-            <li key={employee.id}>
+            <li key={employee.id} className="employee-item">
               {employee.name} ({employee.emp_id})
-              <Link to={`/employee/${employee.id}`}>Details</Link>
-              <button onClick={() => deleteEmployee(employee.id)}>Delete</button>
+              <div>
+                <Link to={`/employee/${employee.id}`}>Details</Link>
+                <button onClick={() => deleteEmployee(employee.id)}>Delete</button>
+              </div>
             </li>
           ))}
         </ul>
       )}
-      <Link to="/add">Add Employee</Link>
+      <Link to="/add" className="add-employee-link">Add Employee</Link>
     </div>
   );
 };

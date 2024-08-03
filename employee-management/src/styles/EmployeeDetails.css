@@ -1,0 +1,39 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .details {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .details p {
+    margin: 10px 0;
+  }
+  
+  .contact-methods {
+    margin-top: 20px;
+  }
+  
+  .contact-methods ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .contact-methods li {
+    background-color: #e9ecef;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
